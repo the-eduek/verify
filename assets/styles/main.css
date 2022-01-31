@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'Grotesk';
+    src: url(~/assets/fonts/HKGrotesk-Light.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: 'Grotesk';
+    src: url(~/assets/fonts/HKGrotesk-Medium.woff2) format("woff2");
+  }
+    
+  @font-face {
+    font-family: 'Grotesk';
+    src: url(~/assets/fonts/HKGrotesk-Regular.woff2) format("woff2");
+  }
+
+  body {
+    font-family: 'Grotesk', 'san-serif';
+  }
+}
