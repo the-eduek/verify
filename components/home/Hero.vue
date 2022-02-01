@@ -40,13 +40,9 @@ export default {
       dataset: [],
       search: "",
       searchResults: [],
-      displayResultsModal: true,
+      displayResultsModal: false,
       firstTime: true
     }
-  },
-
-  beforeMount() {
-    this.displayResultsModal = false;
   },
   
   methods: {
