@@ -26,7 +26,7 @@
         </div>
       </div>
     </div>
-    <div v-if="displayResultsModal" class="fixed z-50 left-0 right-0 top-0 bottom-0 text-center flex items-center justify-center bg-gray-700 bg-opacity-50 p-6" @click=closeResultsModal>
+    <div v-if="displayResultsModal" class="fixed z-50 left-0 right-0 top-0 bottom-0 text-center flex items-center justify-center bg-gray-700 bg-opacity-50 p-6" @click.self=closeResultsModal>
       <p class="bg-black text-white rounded-md inline-block text-sm md:text-lg px-6 py-4 shadow-md">No results were we found for the search term entered.</p>
     </div>
   </section>
@@ -40,25 +40,26 @@ export default {
       dataset: [],
       search: "",
       searchResults: [],
-      displayResultsModal: false,
-      firstTime: true
+      displayResultsModal: false
     }
   },
   
   methods: {
     submitSearch() {
-      this.searchResults = [];
+      if (this.search.length > 0) {
+        this.searchResults = [];
 
-      const dataResults = this.dataset.filter(data => data.name.toLowerCase().includes(this.search.toLowerCase()))
-      dataResults.forEach(result => { if (this.searchResults.indexOf(result) === -1) this.searchResults.push(result) })
+        const dataResults = this.dataset.filter(data => data.name.toLowerCase().includes(this.search.toLowerCase()))
+        dataResults.forEach(result => { if (this.searchResults.indexOf(result) === -1) this.searchResults.push(result) })
 
-      const occupationResults = this.dataset.filter(data => data.occupation.toLowerCase().includes(this.search.toLowerCase()))
-      occupationResults.forEach(result => { if (this.searchResults.indexOf(result) === -1) this.searchResults.push(result) })
+        const occupationResults = this.dataset.filter(data => data.occupation.toLowerCase().includes(this.search.toLowerCase()))
+        occupationResults.forEach(result => { if (this.searchResults.indexOf(result) === -1) this.searchResults.push(result) })
 
-      const companyResults = this.dataset.filter(data => data.company.name.toLowerCase().includes(this.search.toLowerCase()))
-      companyResults.forEach(result => { if (this.searchResults.indexOf(result) === -1) this.searchResults.push(result) })
+        const companyResults = this.dataset.filter(data => data.company.name.toLowerCase().includes(this.search.toLowerCase()))
+        companyResults.forEach(result => { if (this.searchResults.indexOf(result) === -1) this.searchResults.push(result) })
 
-      if (!this.searchResults.length) this.displayResultsModal = !this.displayResultsModal      
+        if (!this.searchResults.length) this.displayResultsModal = !this.displayResultsModal  
+      }          
     },
 
     closeResultsModal() {

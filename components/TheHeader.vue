@@ -1,7 +1,7 @@
 <template>
 <header class="z-30 w-full px-2 py-4 bg-white sm:px-4">
   <div class="container flex items-center justify-between mx-auto">
-    <div class="flex items-center font-bold pl-2">
+    <div class="flex items-center font-bold pl-4">
       <h1 class="text-gray-800">verify</h1>
       <div class="w-4 h-4 ml-1.5">
         <img src="~/assets/images/verify.png" alt="verify icon" class="max-w-full">
@@ -15,11 +15,11 @@
         <li><a href="#" class="text-gray-800 hover:text-gray-900">Pricing</a></li>
       </ul>
     </div>
-    <div class="flex items-center space-x-2 rtl:space-x-reverse">
-      <a href="#" class="hidden rounded-sm md:inline-flex px-5 py-2 border-solid border border-black">Login</a>
-      <a href="#" class="rounded-sm bg-black text-white px-5 py-2 border-solid border border-black">Signup</a>
+    <div class="flex items-center rtl:space-x-reverse">
+      <a href="#" class="hidden rounded-sm md:inline-flex md:mr-5 px-5 py-2 border border-black">Login</a>
+      <a href="#" class="rounded-sm bg-black text-white px-5 py-2 border border-black">Signup</a>
       <div class="inline-flex md:hidden">
-        <button class="flex-none px-2 btn btn-white btn-sm" @click="open = true">
+        <button class="flex-none p-4" @click="open = true"> 
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -48,9 +48,7 @@
 export default {
   data() {
     return {
-      one: false,
-      open: false,
-      two: false
+      open: false
     };
   }
 }
